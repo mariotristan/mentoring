@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local secrets / notes (never commit real values)
+.env
+.env.local
+secrets.txt
+secrets.md
+SETUP.md
+sheets-script.gs
+worker.js
+

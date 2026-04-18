@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentoría Gratuita — Cloud, DevOps & Platform Engineering</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2a2d3a;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --success: #10b981;
+      --radius: 12px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99,102,241,.15);
+      border: 1px solid rgba(99,102,241,.3);
+      color: var(--accent-hover);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(28px, 6vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #e2e8f0 30%, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
+    /* Pillars */
+    .pillars {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .pillar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Requirements */
+    .requirements {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .requirements h3 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .requirements ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .requirements li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .requirements li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Form card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 15px;
+      padding: 12px 14px;
+      transition: border-color .2s;
+      font-family: inherit;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+
+    select option {
+      background: var(--surface);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Character counter */
+    .counter {
+      text-align: right;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .form-row { grid-template-columns: 1fr; }
+      .card { padding: 24px 20px; }
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+      margin-top: 8px;
+    }
+
+    button[type="submit"]:hover  { background: var(--accent-hover); }
+    button[type="submit"]:active { transform: scale(.98); }
+    button[type="submit"]:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* Success state */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 40px 24px;
+    }
+
+    .success-msg .icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .success-msg h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .success-msg p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="hero">
+      <div class="badge">🎓 1 plaza · 3 meses · Gratis</div>
+      <h1>Mentoría 1 a 1 en Cloud, DevOps &amp; Platform Engineering</h1>
+      <p class="subtitle">
+        No es un curso grabado. No es un grupo masivo. Es mentoría personalizada,
+        enfocada en ti, en tu ritmo y en tus metas. Una sola plaza disponible.
+      </p>
+
+      <div class="pillars">
+        <div class="pillar">☁️ Cloud (Azure / AWS / GCP)</div>
+        <div class="pillar">⚙️ DevOps</div>
+        <div class="pillar">🏗️ Platform Engineering</div>
+      </div>
+    </div>
+
+    <div class="requirements">
+      <h3>¿Qué busco en esa persona?</h3>
+      <ul>
+        <li>Ganas reales de aprender y crecer</li>
+        <li>Compromiso con el proceso</li>
+        <li>Curiosidad y disciplina</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Aplica ahora</h2>
+
+      <form id="applyForm" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nombre completo *</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="linkedin">LinkedIn (URL)</label>
+          <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/..." />
+        </div>
+
+        <div class="form-group">
+          <label for="level">Nivel actual *</label>
+          <select id="level" name="level" required>
+            <option value="" disabled selected>Selecciona tu nivel</option>
+            <option>Sin experiencia — quiero empezar desde cero</option>
+            <option>Junior — menos de 1 año de experiencia</option>
+            <option>Mid — 1 a 3 años de experiencia</option>
+            <option>Senior — más de 3 años, pero quiero cambiar de área</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="focus">¿En qué área quieres enfocarte? *</label>
+          <select id="focus" name="focus" required>
+            <option value="" disabled selected>Selecciona un área</option>
+            <option>Cloud — Azure</option>
+            <option>Cloud — AWS</option>
+            <option>Cloud — GCP</option>
+            <option>DevOps</option>
+            <option>Platform Engineering</option>
+            <option>No estoy seguro/a — necesito orientación</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="motivation">¿Por qué tú? Cuéntame tu historia *</label>
+          <textarea id="motivation" name="motivation" maxlength="800"
+            placeholder="¿Qué te motivó a aplicar? ¿Cuál es tu situación actual? ¿Qué quieres lograr en 3 meses?" required></textarea>
+          <div class="counter"><span id="motivationCount">0</span> / 800</div>
+        </div>
+
+        <div class="form-group">
+          <label for="commitment">¿Cuántas horas semanales puedes dedicar? *</label>
+          <select id="commitment" name="commitment" required>
+            <option value="" disabled selected>Selecciona un rango</option>
+            <option>2 – 4 horas</option>
+            <option>5 – 8 horas</option>
+            <option>Más de 8 horas</option>
+          </select>
+        </div>
+
+        <!-- Honeypot: hidden from humans, bots fill it and get silently ignored -->
+        <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <button type="submit" id="submitBtn">Enviar aplicación →</button>
+      </form>
+
+      <div class="success-msg" id="successMsg">
+        <div class="icon">🙌</div>
+        <h2>¡Aplicación recibida!</h2>
+        <p>
+          Gracias por aplicar. Revisaré cada candidatura con atención y me pondré
+          en contacto contigo si avanzas al siguiente paso. ¡Mucho ánimo!
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      Hecho con intención · Solo una plaza disponible
+    </footer>
+
+  </div>
+
+  <script>
+    // Character counter for motivation textarea
+    const motivationEl = document.getElementById('motivation');
+    const countEl = document.getElementById('motivationCount');
+    motivationEl.addEventListener('input', () => {
+      countEl.textContent = motivationEl.value.length;
+    });
+
+    // Form submission
+    const form = document.getElementById('applyForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+
+    // ── Paste your Cloudflare Worker URL here ──
+    const SCRIPT_URL = 'YOUR_CLOUDFLARE_WORKER_URL';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
+
+      const data = Object.fromEntries(new FormData(form));
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify(data),
+        });
+      } catch (_) {
+        // fetch may throw a CORS error even on success — the row is still written
+      }
+
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
