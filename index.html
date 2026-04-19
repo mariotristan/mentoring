@@ -432,7 +432,7 @@
         <div class="pillar">⚙️ IaC &amp; CI/CD</div>
       </div>
 
-      <a class="cta" href="#aplicar">Quiero aplicar →</a>
+      <a class="cta" href="#aplicar" id="ctaBtn">Quiero aplicar →</a>
     </div>
 
     <div class="mentor">
@@ -558,7 +558,9 @@
         <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off" />
 
         <!-- Turnstile — replace data-sitekey with your own -->
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAC_fqm0E-Rh1lXNt" data-theme="dark"></div>
+        <div style="display:flex; justify-content:center; margin: 8px 0;">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAC_fqm0E-Rh1lXNt" data-theme="dark"></div>
+        </div>
 
         <button type="submit" id="submitBtn">Enviar aplicación →</button>
       </form>
@@ -671,6 +673,7 @@
 
       form.style.display = 'none';
       successMsg.style.display = 'block';
+      document.getElementById('ctaBtn').style.display = 'none';
     });
   </script>
 </body>
