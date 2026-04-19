@@ -305,6 +305,26 @@
     button[type="submit"]:active { transform: scale(.98); }
     button[type="submit"]:disabled { opacity: .5; cursor: not-allowed; }
 
+    .privacy-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .privacy-check input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      margin-top: 2px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .privacy-check a { color: var(--accent-hover); }
+
     /* Success state */
     .success-msg {
       display: none;
@@ -554,6 +574,12 @@
           <span class="field-error" id="err-commitment">Selecciona cuántas horas puedes dedicar.</span>
         </div>
 
+        <label class="privacy-check">
+          <input type="checkbox" id="privacy" name="privacy" required />
+          <span>He leído y acepto el <a href="privacidad.html" target="_blank">Aviso de Privacidad</a>. Entiendo que mis datos serán usados únicamente para evaluar mi candidatura a este programa de mentoría.</span>
+        </label>
+        <span class="field-error" id="err-privacy">Debes aceptar el Aviso de Privacidad para continuar.</span>
+
         <!-- Honeypot: hidden from humans, bots fill it and get silently ignored -->
         <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off" />
 
@@ -621,6 +647,7 @@
       focus:      document.getElementById('err-focus'),
       motivation: document.getElementById('err-motivation'),
       commitment: document.getElementById('err-commitment'),
+      privacy:    document.getElementById('err-privacy'),
     };
 
     function validateForm() {
@@ -640,8 +667,21 @@
         fieldErrors.email.classList.add('visible');
         valid = false;
       }
+      // Privacy checkbox
+      const privacyEl = document.getElementById('privacy');
+      const privacyErr = fieldErrors.privacy;
+      if (!privacyEl.checked) {
+        privacyErr.classList.add('visible');
+        valid = false;
+      } else {
+        privacyErr.classList.remove('visible');
+      }
       return valid;
     }
+
+    document.getElementById('privacy').addEventListener('change', () => {
+      fieldErrors.privacy.classList.remove('visible');
+    });
 
     // Clear errors on input
     requiredFields.forEach(id => {

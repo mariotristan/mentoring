@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviso de Privacidad — Mentoría Mario Tristan</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2a2d3a;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --radius: 12px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 32px;
+      transition: color .2s;
+    }
+
+    .back:hover { color: var(--accent-hover); }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .updated {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    section h2 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    section p, section li {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-left: 4px;
+    }
+
+    section ul li::before {
+      content: "·  ";
+      color: var(--accent-hover);
+      font-weight: 700;
+    }
+
+    a { color: var(--accent-hover); }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <a class="back" href="index.html">← Regresar</a>
+
+    <h1>Aviso de Privacidad</h1>
+    <p class="updated">Última actualización: abril 2026</p>
+
+    <div class="card">
+
+      <section>
+        <h2>Responsable del tratamiento</h2>
+        <p>
+          Mario Tristan, con domicilio en México, es el responsable del tratamiento
+          de los datos personales que usted proporcione a través de este formulario,
+          de conformidad con la <strong>Ley Federal de Protección de Datos Personales
+          en Posesión de los Particulares (LFPDPPP)</strong>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Datos personales recabados</h2>
+        <ul>
+          <li>Nombre completo</li>
+          <li>Dirección de correo electrónico</li>
+          <li>URL de perfil de LinkedIn (opcional)</li>
+          <li>Nivel de experiencia profesional</li>
+          <li>Área de interés y disponibilidad horaria</li>
+          <li>Información que usted comparta en el campo de motivación</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Finalidades del tratamiento</h2>
+        <p>Sus datos serán utilizados exclusivamente para:</p>
+        <ul>
+          <li>Evaluar su candidatura al programa de mentoría gratuita</li>
+          <li>Contactarle para informarle sobre el resultado de su solicitud</li>
+          <li>Coordinar las sesiones de mentoría en caso de ser seleccionado/a</li>
+        </ul>
+        <p style="margin-top:10px;">
+          Sus datos <strong>no serán compartidos, vendidos ni cedidos</strong> a terceros
+          bajo ninguna circunstancia.
+        </p>
+      </section>
+
+      <section>
+        <h2>Almacenamiento</h2>
+        <p>
+          Las solicitudes se almacenan en Google Sheets, en una hoja de cálculo privada
+          accesible únicamente por el responsable. Los datos se conservarán durante el
+          tiempo que dure el proceso de selección y, en caso de ser seleccionado/a,
+          durante la vigencia del programa de mentoría. Al concluir, serán eliminados.
+        </p>
+      </section>
+
+      <section>
+        <h2>Derechos ARCO</h2>
+        <p>
+          Usted tiene derecho a <strong>Acceder, Rectificar, Cancelar u Oponerse</strong>
+          (derechos ARCO) al tratamiento de sus datos personales en cualquier momento,
+          enviando un correo a
+          <a href="mailto:mariotristan@gmail.com">mariotristan@gmail.com</a>
+          con el asunto <em>"Derechos ARCO — Mentoría"</em>.
+          Su solicitud será atendida en un plazo máximo de 20 días hábiles.
+        </p>
+      </section>
+
+      <section>
+        <h2>Cambios a este aviso</h2>
+        <p>
+          Cualquier modificación a este Aviso de Privacidad será publicada en esta
+          misma página. Le recomendamos revisarlo periódicamente.
+        </p>
+      </section>
+
+    </div>
+
+    <footer>
+      Mentoría gratuita · Mario Tristan · México
+    </footer>
+
+  </div>
+</body>
+</html>
