@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mentoría Gratuita — Cloud, DevOps & Platform Engineering</title>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -352,6 +353,9 @@
 
         <!-- Honeypot: hidden from humans, bots fill it and get silently ignored -->
         <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <!-- Turnstile — replace data-sitekey with your own -->
+        <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-theme="dark"></div>
 
         <button type="submit" id="submitBtn">Enviar aplicación →</button>
       </form>
